@@ -1,6 +1,6 @@
 蓝创科技Python笔试题-V201908
 
-0：在github.com创建自己的账户，克隆试题项目https://github.com/bluecore-tech/hrcode，完成以下5题，题目所需的数据放在题目相应的文件夹中。完成试题代码保证可以在python3下运行。
+0：在github.com创建自己的账户，克隆试题项目https://github.com/bluecore-tech/hrcode 完成以下5题，题目所需的数据放在题目相应的文件夹中。完成试题代码保证可以在python3下运行。
     注：将结果代码存放在相应目录中。push到自己的github账户的分支中，并将链接发给HR。
 
 1：用Python实现下载www.bluecore.com.cn的首页HTML。
