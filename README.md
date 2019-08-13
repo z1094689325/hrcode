@@ -5,15 +5,15 @@
 
 1：用Python实现下载www.bluecore.com.cn的首页HTML。
 
-2、读取p2.json，取出所有值为数字的Key-Value对，按值从大到小排列，存入目标文件p2.txt。
+2、读取data.json，取出所有值为数字的Key-Value对，按值从大到小排列，存入目标文件p2.txt。
 
-3、读取p3.xml并生成一个python对象，XML元素属性如<p name="Mike">需要作为python对象属性进行访问如：obj.name。
+3、读取data.xml并生成一个python对象，XML元素属性如<p name="Mike">需要作为python对象属性进行访问如：obj.name。
 
 4、用Python实现一个生产者与消费者模型。
 
-5、转换python2.x代码deepzoom.py到Python3可以运行（选作）。
+5、转换python2.x代码deepzoom.py到Python3.x可以运行（选作）。
 
-考试时长1.5小时，计算方式从你克隆项目到最终结果
+考试时长1.5小时，计算方式从你克隆项目到最终结果更新到github.com分支中的最后时间。
 
 谢谢您选择蓝创科技，希望能与您共创属于我们的未来。
 
