@@ -7,11 +7,7 @@ import os
 import PIL.Image
 import shutil
 
-try:
-    import cStringIO
-    StringIO = cStringIO
-except ImportError:
-    import StringIO
+from io import StringIO
 
 import sys
 import time
@@ -215,7 +211,7 @@ class DeepZoomCollection(object):
         descriptor = DeepZoomImageDescriptor()
         descriptor.open(path)
         files_path = _get_or_create_path(_get_files_path(self.source))
-        for level in reversed(xrange(self.max_level + 1)):
+        for level in reversed(range(self.max_level + 1)):
             level_path = _get_or_create_path('%s/%s'%(files_path, level))
             level_size = 2**level
             images_per_tile = int(math.floor(self.tile_size / level_size))
@@ -268,7 +264,7 @@ class DeepZoomCollection(object):
         """Returns position (column, row) from given Z-order (Morton number.)"""
         column = 0
         row = 0
-        for i in xrange(0, 32, 2):
+        for i in range(0, 32, 2):
             offset = i / 2
             # column
             column_offset = i
@@ -285,7 +281,7 @@ class DeepZoomCollection(object):
     def get_z_order(self, column, row):
         """Returns the Z-order (Morton number) from given position."""
         z_order = 0
-        for i in xrange(32):
+        for i in range(32):
             z_order |= (column & 1 << i) << i | (row & 1 << i) << (i + 1)
         return z_order
 
@@ -340,8 +336,8 @@ class ImageCreator(object):
     def tiles(self, level):
         """Iterator for all tiles in the given level. Returns (column, row) of a tile."""
         columns, rows = self.descriptor.get_num_tiles(level)
-        for column in xrange(columns):
-            for row in xrange(rows):
+        for column in range(columns):
+            for row in range(rows):
                 yield (column, row)
 
     def create(self, source, destination):
@@ -355,7 +351,7 @@ class ImageCreator(object):
                                                   tile_format=self.tile_format)
         # Create tiles
         image_files = _get_or_create_path(_get_files_path(destination))
-        for level in xrange(self.descriptor.num_levels):
+        for level in range(self.descriptor.num_levels):
             level_dir = _get_or_create_path(os.path.join(image_files, str(level)))
             level_image = self.get_image(level)
             for (column, row) in self.tiles(level):
@@ -412,7 +408,7 @@ def retry(attempts, backoff=2):
     def deco_retry(f):
         def f_retry(*args, **kwargs):
             last_exception = None
-            for _ in xrange(attempts):
+            for _ in range(attempts):
                 try:
                     return f(*args, **kwargs)
                 except Exception as exception:
